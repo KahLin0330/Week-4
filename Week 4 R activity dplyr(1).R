@@ -3,7 +3,8 @@
 #Task: Write the function to get a dataset from Base R: Titanic
 #and give the dataframe a new name of your choice
 #(hint: you will want your data to be a dataframe. Use the function: as.data.frame(Titanic))
-titanic <- data.frame(Titanic)as.data.frame(Titanic)
+titanic <- data.frame(Titanic)
+as.data.frame(Titanic)
 #See the top rows of the data
 #TASK: Write the function to see the top rows of the data
 head(titanic)
@@ -13,15 +14,18 @@ install.packages("dplyr")
 #Let's just see the Survived and Sex columns
 #Task: Write the function to 'select' the Survived and Sex columns 
 #(hint: use the 'select' function)
-library(dplyr)titanic %>% select(Survived,Sex)
+library(dplyr)
+titanic %>% select(Survived,Sex)
 #Let's name the dataset with just the two columns, Survived and Sex
 #TASK: Write the function to save the two columns as one new dataset
 #and give it a name
-df1<-titanic %>% select(Survived,Sex)print(df1)
+df1<-titanic %>% select(Survived,Sex)
+print(df1)
 #Let's get rid of the Sex column in the new dataset created above
 #TASK: Write the function that deselects the sex column
 #(hint: use the 'select' function to not select a -column)
-df2=subset(df1,select= -c(Sex))print(df2)
+df2=subset(df1,select= -c(Sex))
+print(df2)
 #Let's rename a column name
 #TASK: Write the function that renames 'Sex' to 'Gender'
 titanic%>%rename(Gender = Sex)
@@ -44,7 +48,9 @@ df3%>% filter(Gender== "Female")
 #And now let's join the males and females
 #TASK: Write the function that joins the male and female rows 
 #(hint: try using 'union' or 'bind_rows')
-df4<-data.frame(df4%>% filter(Gender== "Male"))df5<-data.frame(df5%>% filter(Gender== "Female"))bind_cols(df4,df5)
+df4<-data.frame(df4%>% filter(Gender== "Male"))
+df5<-data.frame(df5%>% filter(Gender== "Female"))
+bind_rows(df4,df5)
 
 #Optional Task: add any of the other functions 
 #you learned about from the dplyr package
